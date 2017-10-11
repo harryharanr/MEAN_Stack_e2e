@@ -1,0 +1,39 @@
+<h1 class="page-header">Delete Blog</h1>
+
+<div class="row show-hide-message" *ngIf="message">
+    <div [ngClass]="messageClass">
+        {{ message }}
+    </div>
+</div>
+
+<div class="col-md-6" *ngIf="foundBlog">
+  <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" name="button" class="close" data-dismiss="modal">$times;</button>
+        <h4 class="modal-title">Confirm</h4>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you would like to delete this blog?</p>
+    </div>
+    <div class="modal-footer">
+      <button [disabled]="processing" type="button" name="button" class="btn btn-success" (click)="deleteBlog()">Yes</button>
+      <a routerLink="/blog"><button [disabled]="processing" type="button" name="button" class="btn btn-warning">No</button></a>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{blog.title}}</h3>
+    </div>
+    <div class="panel-body">
+      {{ blog.body }}
+    </div>
+    <div class="panel-footer">
+      <strong>Posted By:</strong>{{ blog.createdBy }}
+      <br/>
+      <strong>Created At:</strong>{{ blog.createdAt | date:'MM dd, yyyy' }}
+    </div>
+  </div>
+</div>
